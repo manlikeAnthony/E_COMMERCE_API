@@ -111,4 +111,6 @@ This project is licensed under the MIT License.
 
 ## Author
 Developed by **Anthony** 🚀
+try it out and let me know what you think 
+
 
