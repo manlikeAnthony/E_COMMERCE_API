@@ -75,6 +75,9 @@ This is a backend API for an Ecommerce platform built using Node.js, Express, an
 | POST   | `/api/v1/reviews` | Add a review        |
 | GET    | `/api/v1/reviews` | Get all reviews     |
 | GET    | `/api/v1/reviews/:id` | Get single review |
+| PATCH  | `/api/v1/reviews/:id` | Update Review    |
+| DELETE  | `/api/v1/reviews/:id` | Update Review    |
+
 
 ### Order Routes
 | Method | Endpoint           | Description      |
@@ -82,6 +85,7 @@ This is a backend API for an Ecommerce platform built using Node.js, Express, an
 | POST   | `/api/v1/orders`  | Place an order   |
 | GET    | `/api/v1/orders`  | Get all orders   |
 | GET    | `/api/v1/orders/:id` | Get single order |
+| PATCH  | `/api/v1/orders/:id` | Update Order    |
 
 ## Middleware & Security
 - **Helmet**: Security headers
