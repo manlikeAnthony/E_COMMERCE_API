@@ -3,6 +3,7 @@ const Product = require("../models/product");
 const CustomError = require("../errors");
 const { StatusCodes } = require("http-status-codes");
 const { checkPermissions } = require("../utils");
+
 const fakeStripeAPI = async ({ amount, currency }) => {
   const client_secret = "someRandomValue";
   return { client_secret, amount };
@@ -57,6 +58,8 @@ const createOrder = async (req, res) => {
     .status(StatusCodes.CREATED)
     .json({ order, clientSecret: order.clientSecret });
 };
+
+
 const getAllOrders = async (req, res) => {
   const orders = await Order.find({}).populate({
     path: "user",
