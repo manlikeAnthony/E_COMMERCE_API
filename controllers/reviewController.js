@@ -50,6 +50,7 @@ const updateReview = async(req,res)=>{
     await review.save()
     res.status(StatusCodes.OK).json({review})
 }   
+
 const deleteReview = async(req,res)=>{
     const {id : reviewId} = req.params;
     const review = await Review.findOne({_id:reviewId});
@@ -60,6 +61,7 @@ const deleteReview = async(req,res)=>{
     await review.deleteOne();
     res.status(StatusCodes.OK).json({msg : 'Review successfully deleted'})
 }
+
 const getSingleProductReviews = async(req,res)=>{
     const {id : productId} = req.params;
     const reviews = await Review.find({product : productId})

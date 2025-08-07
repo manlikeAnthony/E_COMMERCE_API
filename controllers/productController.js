@@ -8,10 +8,12 @@ const createProduct = async (req,res)=>{
     const product = await Product.create(req.body) ;
     res.status(StatusCodes.CREATED).json({product})
 }
+
 const getAllProducts = async (req,res)=>{
     const product = await Product.find({}).populate({path:'user' , select : 'name email'})
     res.status(StatusCodes.OK).json({product})
 }
+
 const getSingleProduct = async (req,res)=>{
     const {id : productId} = req.params;
     const product = await Product.findOne({_id :productId}).populate('reviews').populate({path:'user' , select : 'name email'});
@@ -20,6 +22,7 @@ const getSingleProduct = async (req,res)=>{
     }
     res.status(StatusCodes.OK).json({product})
 }
+
 const updateProduct = async (req,res)=>{
     const {id : productId} = req.params;
     const product = await Product.findOneAndUpdate({_id:productId} , req.body,{
@@ -31,6 +34,7 @@ const updateProduct = async (req,res)=>{
     }
     res.status(StatusCodes.OK).json({product})
 }
+
 const deleteProduct = async (req,res)=>{
     const {id : productId} = req.params;
     const product = await Product.findOne({_id : productId});
@@ -40,6 +44,7 @@ const deleteProduct = async (req,res)=>{
     await product.deleteOne();
     res.status(StatusCodes.OK).json({msg:'success product removed'})
 }
+
 const uploadImage = async (req,res)=>{
     if(!req.files){
         throw new CustomError.BadRequest('no file uploaded')
