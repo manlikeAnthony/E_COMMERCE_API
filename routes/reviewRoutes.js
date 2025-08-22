@@ -13,6 +13,7 @@ const {
 } = require("../middleware/authMiddleware");
 
 router.route("/").get(getAllReviews).post(authenticateUser, createReview);
+
 router
   .route("/:id")
   .get(getSingleReview)
